@@ -11,7 +11,7 @@ function App() {
 
   //useRef :- use for copy the password and show to use
 
-  const passwordRef = useRef(null)
+  const passwordRef = useRef(null);
 
   const PasswordGenerator = useCallback(() => {
     let pass = "";
@@ -26,20 +26,16 @@ function App() {
     setPassword(pass);
   }, [numberAllowed, charAllowed, length, setPassword]);
 
-
   //function for useRef:- to copy the password
-  
-  
-  const copyPasswordToClipboard = useCallback(() => {
 
-      //this for UI user showing to copy the text
+  const copyPasswordToClipboard = useCallback(() => {
+    //this for UI user showing to copy the text
     passwordRef.current?.select();
     passwordRef.current?.setSelectionRange(0, 999);
 
-     //copy the text using Window Object
-    window.navigator.clipboard.writeText(password)
-  }, [password])
-
+    //copy the text using Window Object
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
 
   //use useEffect:-  for the any charge of the dependecies like length , number , and char for regenrate password
 
@@ -61,7 +57,7 @@ function App() {
             ref={passwordRef}
           />
           <button
-            // that is the copied text 
+            // that is the copied text
             onClick={copyPasswordToClipboard}
             className="outline-none bg-blue-700 text-white shrink-0"
           >
